@@ -19,13 +19,9 @@ Route::get('/tools/dig_whois', function () {
     return view('dig_whois');
 });
 
-Route::get('/tools/domain_search/dig', function () {
-    return view('dig');
-});
+Route::get('/tools/domain_search/dig', 'digController@first_visit');
 
-Route::get('/tools/domain_search/whois', function () {
-    return view('whois');
-});
+Route::get('/tools/domain_search/whois', 'whoisController@first_visit');
 
 Route::post('/tools/domain_search/dig', 'digController@dig_search');
 

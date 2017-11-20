@@ -7,7 +7,18 @@ use Jenssegers\Agent\Agent;
 
 class digController extends Controller
 {
+    public function first_visit(Request $req){
+    	
+    	$agent = new Agent();
+    	$platform = $agent->platform();
+    	
+    	return view('dig')->with([
+    		'platform' => $platform,
+    	]);
+    }
+
     public function dig_search(Request $req) {
+
     	$agent = new Agent();
     	$platform = $agent->platform();
     	if ($platform == "Windows") {
